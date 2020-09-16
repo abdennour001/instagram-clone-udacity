@@ -1,0 +1,17 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.app__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #dbdbdb;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: white;
+    width: 100%;
+}
