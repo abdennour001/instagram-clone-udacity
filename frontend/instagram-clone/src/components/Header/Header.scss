@@ -76,3 +76,15 @@
     align-items: center;
     justify-content: flex-end;
 }
+
+.header__icon {
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+@media only screen and (max-width: 974px) {
+    .header__search {
+        width: 200px;
+        margin-left: -50px;
+    }
+}

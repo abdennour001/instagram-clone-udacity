@@ -1,0 +1,37 @@
+.userInfo {
+    display: flex;
+    align-items: center;
+}
+
+.userInfo__username {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.userInfo__username > h4 {
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 2px;
+    padding: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: rgba(38,38,38,1);
+}
+
+.userInfo__username > p {
+    font-size: 12px;
+    line-height: 14px;
+    margin-bottom: 2px;
+    padding-left: 2px;
+    font-weight: 500;
+    color: rgba(142,142,142,1);
+}
+
+
+.userInfo__avatar { 
+    border-radius: 100%;
+    padding: 2px;
+    border: #d3d3d3 1px solid
+}

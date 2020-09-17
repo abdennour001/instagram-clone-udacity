@@ -1,0 +1,114 @@
+.post {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    border-radius: 3px;
+    border: 1px solid #dbdbdb;
+    background-color: white;
+    width: 600px;
+    object-fit: contain;
+}
+
+@media only screen and (max-width: 974px) {
+    .post {
+        margin-bottom: 50px;
+    }
+}
+
+.post__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    height: 35px;
+}
+
+.post__headerInfo {
+    display: flex;
+    align-items: center;
+}
+
+.post__image > img {
+    display: block;
+    width: 100%;
+    object-fit: contain;
+}
+
+.post__footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0px 16px;
+}
+
+.post__header h4 {
+    font-size: 14px;
+    margin-left: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: rgba(38, 38, 38, 1);
+}
+
+.post__actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.post__likes > h4 {
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: rgba(38, 38, 38, 1);
+}
+
+.post__likes {
+    margin-bottom: 8px;
+}
+
+.post__caption {
+    display: flex;
+    flex-direction: row;
+}
+
+.post__caption > p {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(38, 38, 38, 1);
+    margin-bottom: 10px;
+}
+
+.post__caption > p > h4 {
+    display: inline;
+    margin-right: 5px;
+    font-size: 14px;
+    color: rgba(38, 38, 38, 1);
+}
+
+.post__caption > p a {
+    text-decoration: none;
+    color: rgba(0,55,107,1);
+}
+
+.post__icon {
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.post__iconLast {
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.post__date {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgb(199, 199, 199);
+}
