@@ -40,3 +40,12 @@
         width: 100%;
     }
 }
+
+.main__signout {
+    width: 60px;    
+    color: #ed4956;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+    font-weight: bold;
+}
