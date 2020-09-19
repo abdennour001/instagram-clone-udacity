@@ -8,16 +8,16 @@ import Linkify from "linkifyjs/react";
 
 hashtag(linkify);
 
-function Post() {
+function Post({username, userthumbnail, postImage, likes, caption, date}) {
     return (
         <article className="post">
             <header className="post__header">
                 <div className="post__headerInfo">
                     <Avatar
-                        src="https://scontent-mrs2-1.cdninstagram.com/v/t51.2885-19/s150x150/82296251_589859191811763_4463958445028016128_n.jpg?_nc_ht=scontent-mrs2-1.cdninstagram.com&_nc_ohc=jsCIi8RqZPUAX8CU2rn&oh=494724949856da51e1b8d0b7e2b68252&oe=5F8CDBA1"
-                        alt="logobooks_"
+                        src={userthumbnail}
+                        alt={username}
                     ></Avatar>
-                    <h4>logobooks_</h4>
+                    <h4>{username}</h4>
                 </div>
                 <svg
                     aria-label="More options"
@@ -55,7 +55,7 @@ function Post() {
             </header>
             <div className="post__image">
                 <img
-                    srcSet="https://scontent-mrs2-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/119708026_329534198365567_2209061106607073849_n.jpg?_nc_ht=scontent-mrs2-2.cdninstagram.com&_nc_cat=107&_nc_ohc=SqGhzSHvpJkAX99TdWY&oh=75dcc338fe528ae067010620f2cdc0bf&oe=5F8BEA55 640w,https://scontent-mrs2-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s750x750/119708026_329534198365567_2209061106607073849_n.jpg?_nc_ht=scontent-mrs2-2.cdninstagram.com&_nc_cat=107&_nc_ohc=SqGhzSHvpJkAX99TdWY&oh=4b23e0a60eae551e75e04abb0d466b87&oe=5F8D4211 750w,https://scontent-mrs2-2.cdninstagram.com/v/t51.2885-15/e35/119708026_329534198365567_2209061106607073849_n.jpg?_nc_ht=scontent-mrs2-2.cdninstagram.com&_nc_cat=107&_nc_ohc=SqGhzSHvpJkAX99TdWY&_nc_tp=18&oh=3067dac2a22c3f6e405b1e9be5332642&oe=5F8BEB6F"
+                    srcSet={postImage}
                     alt="Post"
                 />
             </div>
@@ -108,27 +108,17 @@ function Post() {
                 </div>
                 <div className="post__info">
                     <div className="post__likes">
-                        <h4>340 likes</h4>
+                        <h4>{likes} likes</h4>
                     </div>
                     <div className="post__caption">
                         <p>
                             <h4>logobooks_</h4>
                             <Linkify>
-                                Available in store: Trademarks & Symbols of the
-                                World 2 by Yasaburo Kuwayama. . 📙 Tap the image
-                                for more info. . #logoplace #logodesigner
-                                #logoinspiration #logoinspirations #monogram
-                                #branding #identity #graphicdesignblg
-                                #graphicgang #logotype #logofolio
-                                #logocollection #logomark #symbol #graphicdesign
-                                #graphicdesigner #designinspiration #logogrid
-                                #thedesigntip #designing #logobooks #graphiclogo
-                                #logographic #brandmark #logobrand
-                                #logo_showcase #logotipo #logonew #logomaker
+                                {caption}
                             </Linkify>
                         </p>
                     </div>
-                    <span className="post__date">8 hours ago</span>
+                    <span className="post__date">{date}</span>
                 </div>
             </footer>
         </article>
