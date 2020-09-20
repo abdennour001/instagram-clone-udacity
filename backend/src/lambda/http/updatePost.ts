@@ -13,9 +13,9 @@ import { createLogger } from '../../utils/logger'
 
 const logger = createLogger('update-todo')
 
-import { UpdateTodoRequest } from '../../requests/UpdateTodoRequest'
+import { UpdateTodoRequest } from '../../requests/UpdatePostRequest'
 import { getUserId } from '../utils'
-import { updateTodo } from '../../businessLogic/todos'
+import { updateTodo } from '../../businessLogic/posts'
 
 export const handler: APIGatewayProxyHandler = async (
   event: APIGatewayProxyEvent

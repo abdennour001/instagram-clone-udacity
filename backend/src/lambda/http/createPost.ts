@@ -5,11 +5,11 @@ import {
   APIGatewayProxyHandler,
   APIGatewayProxyResult
 } from 'aws-lambda'
-import { CreateTodoRequest } from '../../requests/CreateTodoRequest'
+import { CreateTodoRequest } from '../../requests/CreatePostRequest'
 import { createLogger } from '../../utils/logger'
 import { getUserId } from '../utils'
 import * as uuid from 'uuid'
-import { createTodo } from '../../businessLogic/todos'
+import { createTodo } from '../../businessLogic/posts'
 
 const logger = createLogger('create-todo')
 

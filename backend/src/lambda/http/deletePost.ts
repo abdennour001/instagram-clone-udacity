@@ -8,7 +8,7 @@ import {
 // import * as AWS from 'aws-sdk'
 import { createLogger } from '../../utils/logger'
 import { getUserId } from '../utils'
-import { deleteTodo } from '../../businessLogic/todos'
+import { deleteTodo } from '../../businessLogic/posts'
 
 // const docClient = new AWS.DynamoDB.DocumentClient()
 // const todosTable = process.env.TODOS_TABLE

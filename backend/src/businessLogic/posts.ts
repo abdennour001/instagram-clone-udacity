@@ -1,9 +1,9 @@
 import * as uuid from 'uuid'
 
-import { TodoItem } from '../models/TodoItem'
-import { CreateTodoRequest } from '../requests/CreateTodoRequest'
-import { UpdateTodoRequest } from '../requests/UpdateTodoRequest'
-import { TodoAccess } from '../dataLayer/todosAccess'
+import { PostItem } from '../models/PostItem'
+import { CreateTodoRequest } from '../requests/CreatePostRequest'
+import { UpdateTodoRequest } from '../requests/UpdatePostRequest'
+import { TodoAccess } from '../dataLayer/postsAccess'
 
 const todoAccess = new TodoAccess()
 

@@ -4,8 +4,8 @@ import { DocumentClient } from 'aws-sdk/clients/dynamodb'
 
 const XAWS = AWSXRay.captureAWS(AWS)
 
-import { TodoItem } from '../models/TodoItem'
-import { TodoUpdate } from '../models/TodoUpdate'
+import { TodoItem } from '../models/PostItem'
+import { TodoUpdate } from '../models/PostUpdate'
 
 export class TodoAccess {
   constructor(

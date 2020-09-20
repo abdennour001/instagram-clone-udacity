@@ -8,7 +8,7 @@ import {
 // import * as AWS from 'aws-sdk'
 import { createLogger } from '../../utils/logger'
 import { getUserId } from '../utils'
-import { generateUploadUrl } from '../../businessLogic/todos'
+import { generateUploadUrl } from '../../businessLogic/posts'
 
 // const s3 = new AWS.S3({
 //   signatureVersion: 'v4'
