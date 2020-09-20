@@ -1,0 +1,14 @@
+.postEdit {
+    height: 100vh;
+    padding: 20px;  
+}
+
+.postEdit__form {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    border-radius: 3px;
+    border: 1px solid #dbdbdb;
+    background-color: white;
+    width: 600px;   
+}

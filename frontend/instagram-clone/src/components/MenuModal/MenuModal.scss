@@ -1,0 +1,117 @@
+.menuModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.65);
+
+    @keyframes IGCoreModalShow {
+        0% {
+            opacity: 0;
+            transform: scale(1.2);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+    &-hidden {
+        display: none;
+    }
+
+    .menuModal__menu {
+        width: 400px;
+        margin: 20px;
+        animation-duration: 100ms;
+        animation-timing-function: ease-out;
+        animation-delay: 0ms;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+        animation-play-state: running;
+        animation-name: IGCoreModalShow;
+        .menuModal__list {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            flex-direction: column;
+            background-color: white;
+            border-radius: 12px;
+            max-height: 100%;
+            overflow: hidden;
+            .menuModal__item {
+                button {
+                    font-family: inherit;
+                    line-height: 1.5;
+                    padding: 6px 8px;
+                    cursor: pointer;
+                    border: 0;
+                    border-top: 1px solid rgba(219, 219, 219, 1);
+                    width: 100%;
+                    min-height: 48px;
+                    background-color: transparent;
+                    font-weight: 500;
+                    font-size: 15px;
+                    color: rgba(38, 38, 38, 1);
+                }
+
+                button:focus {
+                    outline: none;
+                }
+
+                &:first-child {
+                    button {
+                        font-family: inherit;
+                        line-height: 1.5;
+                        padding: 6px 8px;
+                        cursor: pointer;
+                        border: 0;
+                        width: 100%;
+                        min-height: 48px;
+                        background-color: transparent;
+                        font-weight: 500;
+                        font-size: 15px;
+                        color: rgba(38, 38, 38, 1);
+                    }
+                    button:focus {
+                        outline: none;
+                    }
+                }
+
+                &-danger {
+                    button {
+                        font-family: inherit;
+                        line-height: 1.5;
+                        padding: 6px 8px;
+                        cursor: pointer;
+                        border: 0;
+                        border-top: 1px solid rgba(219, 219, 219, 1);
+                        width: 100%;
+                        min-height: 48px;
+                        background-color: transparent;
+                        font-weight: 700;
+                        font-size: 15px;
+                        color: #ed4956;
+                    }
+                    button:focus {
+                        outline: none;
+                    }
+                }
+
+                &:hover {
+                    background: rgba(0, 0, 0, 0.02);
+                }
+                &-danger:hover {
+                    background: rgba(0, 0, 0, 0.02);
+                }
+            }
+        }
+    }
+}

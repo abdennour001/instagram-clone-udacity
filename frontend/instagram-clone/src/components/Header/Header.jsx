@@ -4,6 +4,7 @@ import { Avatar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 import CancelIcon from "@material-ui/icons/Cancel";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -27,11 +28,13 @@ function Header() {
 
     return (
         <nav className="header">
-            <img
-                className="header__logo"
-                src="https://www.vectorlogo.zone/logos/instagram/instagram-wordmark.svg"
-                alt="Instagram Logo"
-            />
+            <Link to="/">
+                <img
+                    className="header__logo"
+                    src="https://www.vectorlogo.zone/logos/instagram/instagram-wordmark.svg"
+                    alt="Instagram Logo"
+                />
+            </Link>
             <div className="header__l-search">
                 <div className="header__search">
                     <SearchIcon className="header__searchIcon"></SearchIcon>

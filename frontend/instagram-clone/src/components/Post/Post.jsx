@@ -5,18 +5,18 @@ import Avatar from "@material-ui/core/Avatar";
 import * as linkify from "linkifyjs";
 import hashtag from "linkifyjs/plugins/hashtag";
 import Linkify from "linkifyjs/react";
+import { connect } from "react-redux";
+import { toggleModal } from "../../redux/actions/modalActions";
+
 
 hashtag(linkify);
 
-function Post({username, userthumbnail, postImage, likes, caption, date}) {
+function Post({ username, userthumbnail, postImage, likes, caption, date, isOpened, toggleModal }) {
     return (
         <article className="post">
             <header className="post__header">
                 <div className="post__headerInfo">
-                    <Avatar
-                        src={userthumbnail}
-                        alt={username}
-                    ></Avatar>
+                    <Avatar src={userthumbnail} alt={username}></Avatar>
                     <h4>{username}</h4>
                 </div>
                 <svg
@@ -29,6 +29,7 @@ function Post({username, userthumbnail, postImage, likes, caption, date}) {
                     height="16"
                     viewBox="0 0 48 48"
                     width="16"
+                    onClick={(e) => {toggleModal()}}
                 >
                     <circle
                         clip-rule="evenodd"
@@ -54,10 +55,7 @@ function Post({username, userthumbnail, postImage, likes, caption, date}) {
                 </svg>
             </header>
             <div className="post__image">
-                <img
-                    srcSet={postImage}
-                    alt="Post"
-                />
+                <img srcSet={postImage} alt="Post" />
             </div>
             <footer className="post__footer">
                 <div className="post__actions">
@@ -113,9 +111,7 @@ function Post({username, userthumbnail, postImage, likes, caption, date}) {
                     <div className="post__caption">
                         <p>
                             <h4>logobooks_</h4>
-                            <Linkify>
-                                {caption}
-                            </Linkify>
+                            <Linkify>{caption}</Linkify>
                         </p>
                     </div>
                     <span className="post__date">{date}</span>
@@ -125,4 +121,8 @@ function Post({username, userthumbnail, postImage, likes, caption, date}) {
     );
 }
 
-export default Post;
+const mapStateToProps = state => ({
+    isOpened: state.modal.isOpened
+});
+
+export default connect(mapStateToProps, { toggleModal })(Post);
