@@ -8,10 +8,19 @@ import Linkify from "linkifyjs/react";
 import { connect } from "react-redux";
 import { toggleModal } from "../../redux/actions/modalActions";
 
-
 hashtag(linkify);
 
-function Post({ username, userthumbnail, postImage, likes, caption, date, isOpened, toggleModal }) {
+function Post({
+    id,
+    username,
+    userthumbnail,
+    postImage,
+    likes,
+    caption,
+    date,
+    isOpened,
+    toggleModal
+}) {
     return (
         <article className="post">
             <header className="post__header">
@@ -29,7 +38,9 @@ function Post({ username, userthumbnail, postImage, likes, caption, date, isOpen
                     height="16"
                     viewBox="0 0 48 48"
                     width="16"
-                    onClick={(e) => {toggleModal()}}
+                    onClick={e => {
+                        toggleModal(id);
+                    }}
                 >
                     <circle
                         clip-rule="evenodd"

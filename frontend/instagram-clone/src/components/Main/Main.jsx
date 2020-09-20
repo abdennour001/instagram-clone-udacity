@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Main.css";
 import UserInfo from "../UserInfo";
 import Post from "../Post";
@@ -7,6 +7,13 @@ import { connect } from "react-redux";
 import { fetchPosts } from "../../redux/actions/postsActions";
 
 function Main({ posts, addPosts }) {
+    useEffect(() => {
+        if (posts === null) {
+            // TODO: api call to get posts
+
+        }
+    }, []);
+
     return (
         <div className="main">
             <div className="main__feed">
@@ -15,6 +22,7 @@ function Main({ posts, addPosts }) {
                 {posts.length !== 0 &&
                     posts.map(
                         ({
+                            id,
                             username,
                             userthumbnail,
                             postImage,
@@ -23,6 +31,8 @@ function Main({ posts, addPosts }) {
                             date
                         }) => (
                             <Post
+                                key={id}
+                                id={id}
                                 username={username}
                                 userthumbnail={userthumbnail}
                                 postImage={postImage}
@@ -63,4 +73,4 @@ const mapStateToProps = state => ({
     posts: state.posts.posts
 });
 
-export default connect(mapStateToProps, { fecthPosts })(Main);
+export default connect(mapStateToProps, { fetchPosts })(Main);

@@ -1,7 +1,8 @@
 import { TOGGLE_MODAL } from "../types";
 
 const initialState = {
-    isOpened: false
+    isOpened: false,
+    selectedPost: null
 };
 
 export default (state = initialState, action) => {
@@ -9,7 +10,8 @@ export default (state = initialState, action) => {
         case TOGGLE_MODAL:
             return {
                 ...state,
-                isOpened: !state.isOpened
+                isOpened: !state.isOpened,
+                selectedPost: action.payload
             };
 
         default:

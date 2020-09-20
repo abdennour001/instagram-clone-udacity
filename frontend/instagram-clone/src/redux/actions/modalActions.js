@@ -1,7 +1,8 @@
 import { TOGGLE_MODAL } from "../types";
 
-export const toggleModal = () => {
+export const toggleModal = selectedPost => {
     return {
-        type: TOGGLE_MODAL
+        type: TOGGLE_MODAL,
+        payload: selectedPost
     };
 };
