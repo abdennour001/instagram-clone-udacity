@@ -211,7 +211,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/instagram-clone/dev/1600827062595-2020-09-23T02:11:02.595Z/instagram-clone.zip"
+                "S3Key": "serverless/instagram-clone/dev/1600831034381-2020-09-23T03:17:14.381Z/instagram-clone.zip"
               },
               "FunctionName": "instagram-clone-dev-Auth",
               "Handler": "src/lambda/auth/auth0Authorizer.handler",
@@ -242,14 +242,14 @@
               "AuthLogGroup"
             ]
           },
-          "AuthLambdaVersioniTwjmp47wEPlYabbyBaTUTn0gIz0IVJ94CFYxdo": {
+          "AuthLambdaVersion67hQTxdiGufFUYHfZ3TQgjvfBFoCgTXg0x8LSBkFzk": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AuthLambdaFunction"
               },
-              "CodeSha256": "XJhMS7EDaW8AOnoxzFcgJnXF1qnYwFLEJlRqtiSHnMM="
+              "CodeSha256": "tBYT1X08f+TM3CzdRVfPSvWLbklB4yeEP5RCK0ZkRq0="
             }
           },
           "GetPostsLambdaFunction": {
@@ -259,7 +259,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/instagram-clone/dev/1600827062595-2020-09-23T02:11:02.595Z/instagram-clone.zip"
+                "S3Key": "serverless/instagram-clone/dev/1600831034381-2020-09-23T03:17:14.381Z/instagram-clone.zip"
               },
               "FunctionName": "instagram-clone-dev-GetPosts",
               "Handler": "src/lambda/http/getPosts.handler",
@@ -291,14 +291,14 @@
               "GetPostsLogGroup"
             ]
           },
-          "GetPostsLambdaVersionKNUMjnIYnxyEnthX8TRFOJrjtNrAPF0AfyoqrXNuk": {
+          "GetPostsLambdaVersion1AiOTZGBAGevgQpPbntGpJKKK0R3WQLKirl1mztkcU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetPostsLambdaFunction"
               },
-              "CodeSha256": "XJhMS7EDaW8AOnoxzFcgJnXF1qnYwFLEJlRqtiSHnMM="
+              "CodeSha256": "tBYT1X08f+TM3CzdRVfPSvWLbklB4yeEP5RCK0ZkRq0="
             }
           },
           "CreatePostLambdaFunction": {
@@ -308,7 +308,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/instagram-clone/dev/1600827062595-2020-09-23T02:11:02.595Z/instagram-clone.zip"
+                "S3Key": "serverless/instagram-clone/dev/1600831034381-2020-09-23T03:17:14.381Z/instagram-clone.zip"
               },
               "FunctionName": "instagram-clone-dev-CreatePost",
               "Handler": "src/lambda/http/createPost.handler",
@@ -340,14 +340,14 @@
               "CreatePostLogGroup"
             ]
           },
-          "CreatePostLambdaVersion2E5ZJbHLp1ZbJ8MnpZn469W3T27sQtmwvr8tYd73Q": {
+          "CreatePostLambdaVersion7tSAQ0wabltjhd2Irr9bnxUy6A3mWJ8cP1GJZ0O6n4": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreatePostLambdaFunction"
               },
-              "CodeSha256": "XJhMS7EDaW8AOnoxzFcgJnXF1qnYwFLEJlRqtiSHnMM="
+              "CodeSha256": "tBYT1X08f+TM3CzdRVfPSvWLbklB4yeEP5RCK0ZkRq0="
             }
           },
           "UpdatePostLambdaFunction": {
@@ -357,7 +357,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/instagram-clone/dev/1600827062595-2020-09-23T02:11:02.595Z/instagram-clone.zip"
+                "S3Key": "serverless/instagram-clone/dev/1600831034381-2020-09-23T03:17:14.381Z/instagram-clone.zip"
               },
               "FunctionName": "instagram-clone-dev-UpdatePost",
               "Handler": "src/lambda/http/updatePost.handler",
@@ -389,14 +389,14 @@
               "UpdatePostLogGroup"
             ]
           },
-          "UpdatePostLambdaVersiontkMAQqwkltwAOWR24sEGbiNR8V65ta4NBfxX3MQX5g": {
+          "UpdatePostLambdaVersionr54Sird15a0C0WVzjfdpZPwiH6JMcJ38RyXbqy1k": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UpdatePostLambdaFunction"
               },
-              "CodeSha256": "XJhMS7EDaW8AOnoxzFcgJnXF1qnYwFLEJlRqtiSHnMM="
+              "CodeSha256": "tBYT1X08f+TM3CzdRVfPSvWLbklB4yeEP5RCK0ZkRq0="
             }
           },
           "DeletePostLambdaFunction": {
@@ -406,7 +406,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/instagram-clone/dev/1600827062595-2020-09-23T02:11:02.595Z/instagram-clone.zip"
+                "S3Key": "serverless/instagram-clone/dev/1600831034381-2020-09-23T03:17:14.381Z/instagram-clone.zip"
               },
               "FunctionName": "instagram-clone-dev-DeletePost",
               "Handler": "src/lambda/http/deletePost.handler",
@@ -438,14 +438,14 @@
               "DeletePostLogGroup"
             ]
           },
-          "DeletePostLambdaVersiony0lHfLKAfA6ppy2c29YQ2XvyLo7ix8Rw0ukHG8xskA": {
+          "DeletePostLambdaVersionMZ1CMXnyM3WQBs1YueoHydsC1QDzgoPjb04Rcxk3k": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "DeletePostLambdaFunction"
               },
-              "CodeSha256": "XJhMS7EDaW8AOnoxzFcgJnXF1qnYwFLEJlRqtiSHnMM="
+              "CodeSha256": "tBYT1X08f+TM3CzdRVfPSvWLbklB4yeEP5RCK0ZkRq0="
             }
           },
           "GenerateUploadUrlLambdaFunction": {
@@ -455,7 +455,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/instagram-clone/dev/1600827062595-2020-09-23T02:11:02.595Z/instagram-clone.zip"
+                "S3Key": "serverless/instagram-clone/dev/1600831034381-2020-09-23T03:17:14.381Z/instagram-clone.zip"
               },
               "FunctionName": "instagram-clone-dev-GenerateUploadUrl",
               "Handler": "src/lambda/http/generateUploadUrl.handler",
@@ -487,14 +487,14 @@
               "GenerateUploadUrlLogGroup"
             ]
           },
-          "GenerateUploadUrlLambdaVersionKB0ENy9jNZqSz8GEZAw0Ics1WvUMF4mr8c7POgTVI": {
+          "GenerateUploadUrlLambdaVersionnVye6YwTDwx4lTOW9IaezESz8OKuNG9jNZgSHW4s": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GenerateUploadUrlLambdaFunction"
               },
-              "CodeSha256": "XJhMS7EDaW8AOnoxzFcgJnXF1qnYwFLEJlRqtiSHnMM="
+              "CodeSha256": "tBYT1X08f+TM3CzdRVfPSvWLbklB4yeEP5RCK0ZkRq0="
             }
           },
           "ApiGatewayRestApi": {
@@ -953,7 +953,7 @@
               "Type": "TOKEN"
             }
           },
-          "ApiGatewayDeployment1600827022174": {
+          "ApiGatewayDeployment1600831000525": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1821,37 +1821,37 @@
           "AuthLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AuthLambdaVersioniTwjmp47wEPlYabbyBaTUTn0gIz0IVJ94CFYxdo"
+              "Ref": "AuthLambdaVersion67hQTxdiGufFUYHfZ3TQgjvfBFoCgTXg0x8LSBkFzk"
             }
           },
           "GetPostsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetPostsLambdaVersionKNUMjnIYnxyEnthX8TRFOJrjtNrAPF0AfyoqrXNuk"
+              "Ref": "GetPostsLambdaVersion1AiOTZGBAGevgQpPbntGpJKKK0R3WQLKirl1mztkcU"
             }
           },
           "CreatePostLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CreatePostLambdaVersion2E5ZJbHLp1ZbJ8MnpZn469W3T27sQtmwvr8tYd73Q"
+              "Ref": "CreatePostLambdaVersion7tSAQ0wabltjhd2Irr9bnxUy6A3mWJ8cP1GJZ0O6n4"
             }
           },
           "UpdatePostLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UpdatePostLambdaVersiontkMAQqwkltwAOWR24sEGbiNR8V65ta4NBfxX3MQX5g"
+              "Ref": "UpdatePostLambdaVersionr54Sird15a0C0WVzjfdpZPwiH6JMcJ38RyXbqy1k"
             }
           },
           "DeletePostLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "DeletePostLambdaVersiony0lHfLKAfA6ppy2c29YQ2XvyLo7ix8Rw0ukHG8xskA"
+              "Ref": "DeletePostLambdaVersionMZ1CMXnyM3WQBs1YueoHydsC1QDzgoPjb04Rcxk3k"
             }
           },
           "GenerateUploadUrlLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GenerateUploadUrlLambdaVersionKB0ENy9jNZqSz8GEZAw0Ics1WvUMF4mr8c7POgTVI"
+              "Ref": "GenerateUploadUrlLambdaVersionnVye6YwTDwx4lTOW9IaezESz8OKuNG9jNZgSHW4s"
             }
           },
           "ServiceEndpoint": {
@@ -2000,7 +2000,7 @@
         "timeout": 6,
         "runtime": "nodejs10.x",
         "vpc": {},
-        "versionLogicalId": "AuthLambdaVersioniTwjmp47wEPlYabbyBaTUTn0gIz0IVJ94CFYxdo"
+        "versionLogicalId": "AuthLambdaVersion67hQTxdiGufFUYHfZ3TQgjvfBFoCgTXg0x8LSBkFzk"
       },
       "GetPosts": {
         "handler": "src/lambda/http/getPosts.handler",
@@ -2051,7 +2051,7 @@
         "timeout": 6,
         "runtime": "nodejs10.x",
         "vpc": {},
-        "versionLogicalId": "GetPostsLambdaVersionKNUMjnIYnxyEnthX8TRFOJrjtNrAPF0AfyoqrXNuk"
+        "versionLogicalId": "GetPostsLambdaVersion1AiOTZGBAGevgQpPbntGpJKKK0R3WQLKirl1mztkcU"
       },
       "CreatePost": {
         "handler": "src/lambda/http/createPost.handler",
@@ -2115,7 +2115,7 @@
         "timeout": 6,
         "runtime": "nodejs10.x",
         "vpc": {},
-        "versionLogicalId": "CreatePostLambdaVersion2E5ZJbHLp1ZbJ8MnpZn469W3T27sQtmwvr8tYd73Q"
+        "versionLogicalId": "CreatePostLambdaVersion7tSAQ0wabltjhd2Irr9bnxUy6A3mWJ8cP1GJZ0O6n4"
       },
       "UpdatePost": {
         "handler": "src/lambda/http/updatePost.handler",
@@ -2175,7 +2175,7 @@
         "timeout": 6,
         "runtime": "nodejs10.x",
         "vpc": {},
-        "versionLogicalId": "UpdatePostLambdaVersiontkMAQqwkltwAOWR24sEGbiNR8V65ta4NBfxX3MQX5g"
+        "versionLogicalId": "UpdatePostLambdaVersionr54Sird15a0C0WVzjfdpZPwiH6JMcJ38RyXbqy1k"
       },
       "DeletePost": {
         "handler": "src/lambda/http/deletePost.handler",
@@ -2231,7 +2231,7 @@
         "timeout": 6,
         "runtime": "nodejs10.x",
         "vpc": {},
-        "versionLogicalId": "DeletePostLambdaVersiony0lHfLKAfA6ppy2c29YQ2XvyLo7ix8Rw0ukHG8xskA"
+        "versionLogicalId": "DeletePostLambdaVersionMZ1CMXnyM3WQBs1YueoHydsC1QDzgoPjb04Rcxk3k"
       },
       "GenerateUploadUrl": {
         "handler": "src/lambda/http/generateUploadUrl.handler",
@@ -2282,7 +2282,7 @@
         "timeout": 6,
         "runtime": "nodejs10.x",
         "vpc": {},
-        "versionLogicalId": "GenerateUploadUrlLambdaVersionKB0ENy9jNZqSz8GEZAw0Ics1WvUMF4mr8c7POgTVI"
+        "versionLogicalId": "GenerateUploadUrlLambdaVersionnVye6YwTDwx4lTOW9IaezESz8OKuNG9jNZgSHW4s"
       }
     },
     "resources": {
@@ -2426,7 +2426,7 @@
         "$ref": "$[\"service\"][\"resources\"]"
       },
       "package": {
-        "artifactDirectoryName": "serverless/instagram-clone/dev/1600827062595-2020-09-23T02:11:02.595Z"
+        "artifactDirectoryName": "serverless/instagram-clone/dev/1600831034381-2020-09-23T03:17:14.381Z"
       },
       "layers": {
         "$ref": "$[\"service\"][\"layers\"]"
@@ -2436,7 +2436,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/instagram-clone/dev/1600827062595-2020-09-23T02:11:02.595Z",
+    "artifactDirectoryName": "serverless/instagram-clone/dev/1600831034381-2020-09-23T03:17:14.381Z",
     "artifact": ""
   }
 }
