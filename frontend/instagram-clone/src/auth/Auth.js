@@ -63,7 +63,7 @@ export default class Auth {
     this.expiresAt = expiresAt;
 
     // navigate to the home route
-    this.history.replace('/');
+    // this.history.replace('/');
   }
 
   renewSession() {

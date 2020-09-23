@@ -2,13 +2,14 @@ import { apiEndpoint } from "../config";
 import Axios from "axios";
 
 export async function getPosts(idToken) {
-    console.log("Fetching posts");
+    console.log("Fetching posts : " + idToken);
 
     const response = await Axios.get(`${apiEndpoint}/posts`, {
         headers: {
+            // "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
             Authorization: `Bearer ${idToken}`
-        }
+        },
     });
     console.log("Posts:", response.data);
     return response.data.items;
@@ -21,7 +22,7 @@ export async function createPost(idToken, newPost) {
         {
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${idToken}`
+                "Authorization": `Bearer ${idToken}`
             }
         }
     );
@@ -42,7 +43,7 @@ export async function patchPost(idToken, postId, updatedPost) {
 }
 
 export async function deletePost(idToken, postId) {
-    await Axios.delete(`${apiEndpoint}/todos/${postId}`, {
+    await Axios.delete(`${apiEndpoint}/posts/${postId}`, {
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${idToken}`
@@ -52,7 +53,7 @@ export async function deletePost(idToken, postId) {
 
 export async function getUploadUrl(idToken, postId) {
     const response = await Axios.post(
-        `${apiEndpoint}/todos/${postId}/attachment`,
+        `${apiEndpoint}/posts/${postId}/attachment`,
         "",
         {
             headers: {

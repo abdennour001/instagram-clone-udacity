@@ -1,0 +1,10 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.login__logo {
+    width: 100%;
+    object-fit: contain;
+}

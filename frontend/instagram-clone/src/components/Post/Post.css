@@ -84,14 +84,14 @@
     margin-bottom: 10px;
 }
 
-.post__caption > p > h4 {
+.post__caption > div > h4 {
     display: inline;
     margin-right: 5px;
     font-size: 14px;
     color: rgba(38, 38, 38, 1);
 }
 
-.post__caption > p a {
+.post__caption > div a {
     text-decoration: none;
     color: rgba(0,55,107,1);
 }

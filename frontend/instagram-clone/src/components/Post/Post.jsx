@@ -26,7 +26,7 @@ function Post({
             <header className="post__header">
                 <div className="post__headerInfo">
                     <Avatar src={userthumbnail} alt={username}></Avatar>
-                    <h4>{username}</h4>
+                    {/* <h4>{username}</h4> */}
                 </div>
                 <svg
                     aria-label="More options"
@@ -66,7 +66,7 @@ function Post({
                 </svg>
             </header>
             <div className="post__image">
-                <img srcSet={postImage} alt="Post" />
+                <img src={postImage} alt="Post" />
             </div>
             <footer className="post__footer">
                 <div className="post__actions">
@@ -120,10 +120,10 @@ function Post({
                         <h4>{likes} likes</h4>
                     </div>
                     <div className="post__caption">
-                        <p>
+                        <div>
                             <h4>logobooks_</h4>
                             <Linkify>{caption}</Linkify>
-                        </p>
+                        </div>
                     </div>
                     <span className="post__date">{date}</span>
                 </div>
