@@ -4,8 +4,9 @@ import PhotoCameraRoundedIcon from "@material-ui/icons/PhotoCameraRounded";
 import Avatar from "@material-ui/core/Avatar";
 import { createPost, getUploadUrl, uploadFile } from "../../api/posts-api";
 import { connect } from "react-redux";
+import { createPost as addPost } from "../../redux/actions/postsActions";
 
-function NewPost({ auth }) {
+function NewPost({ auth, addPost }) {
     const [caption, setCaption] = useState("");
     const [photo, setPhoto] = useState(undefined);
 
@@ -21,6 +22,8 @@ function NewPost({ auth }) {
                 newPost.postId
             );
             await uploadFile(uploadUrl, photo);
+
+            addPost({...newPost, photoUrl:`https://serverless-posts-images-final-dev.s3.amazonaws.com/${newPost.postId}`})
             // this.setState({
             //     todos: [...this.state.todos, newTodo],
             //     newTodoName: ""
@@ -34,7 +37,6 @@ function NewPost({ auth }) {
         <form method="post" className="newPost">
             <div className="newPost__title">
                 <Avatar
-                    src="https://scontent-mrs2-1.cdninstagram.com/v/t51.2885-19/s150x150/33640314_1888844138075124_6391859596507480064_n.jpg?_nc_ht=scontent-mrs2-1.cdninstagram.com&_nc_ohc=XH6v7IAk8EEAX-6xAA3&oh=c37a86c584c07cb0d568c75822669cab&oe=5F89E5CC"
                     alt="Amokrane Abdennour"
                 >
                     A
@@ -89,4 +91,4 @@ const mapStateToProps = state => ({
     auth: state.auth.auth
 });
 
-export default connect(mapStateToProps)(NewPost);
+export default connect(mapStateToProps, {addPost})(NewPost);

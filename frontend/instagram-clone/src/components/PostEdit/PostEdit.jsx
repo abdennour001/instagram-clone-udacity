@@ -3,9 +3,12 @@ import "./PostEdit.scss";
 import { useHistory, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { patchPost } from "../../api/posts-api";
+import {
+    createPost as addPost,
+    removePost
+} from "../../redux/actions/postsActions";
 
-
-function PostEdit({ params, posts, auth }) {
+function PostEdit({ params, posts, auth, removePost, addPost }) {
     const [post, setPost] = useState();
     const [caption, setCaption] = useState("");
 
@@ -48,7 +51,10 @@ function PostEdit({ params, posts, auth }) {
                         // TODO: api call to edit a post
                         patchPost(auth.getIdToken(), id, {
                             caption: caption
-                          })
+                        });
+
+                        removePost(post.postId);
+                        addPost({ ...post, caption: caption });
                         history.push("/");
                     }}
                 >
@@ -64,4 +70,4 @@ const mapStateToProps = state => ({
     auth: state.auth.auth
 });
 
-export default connect(mapStateToProps)(PostEdit);
+export default connect(mapStateToProps, { removePost, addPost })(PostEdit);

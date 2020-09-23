@@ -18,7 +18,7 @@ function Main({ posts, fetchPosts, auth, callAction, loggedIn }) {
                     try {
                         console.log(auth.getIdToken());
                         const posts = await getPosts(auth.getIdToken());
-                        fetchPosts(posts.reverse());
+                        fetchPosts(posts);
                     } catch (e) {
                         alert(`Failed to fetch posts: ${e.message}`);
                     }
@@ -27,7 +27,7 @@ function Main({ posts, fetchPosts, auth, callAction, loggedIn }) {
                 fetchData();
             }
         }
-       }, 2000)
+       }, 1000)
     }, []);
 
     return (

@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import { toggleModal } from "../../redux/actions/modalActions";
 import { useHistory } from "react-router-dom";
 import { deletePost } from "../../api/posts-api";
+import { removePost } from "../../redux/actions/postsActions";
 
-function MenuModal({ isOpened, selectedPost, toggleModal, auth }) {
+function MenuModal({ isOpened, selectedPost, toggleModal, auth, removePost }) {
     let history = useHistory();
 
     const handleOutsideClick = event => {
@@ -28,8 +29,9 @@ function MenuModal({ isOpened, selectedPost, toggleModal, auth }) {
                                 e.preventDefault();
                                 // TODO: api call to delete a post
                                 try {
-                                    console.log(auth.getIdToken())
+                                    console.log(auth.getIdToken());
                                     deletePost(auth.getIdToken(), selectedPost);
+                                    removePost(selectedPost);
                                 } catch {
                                     alert("Todo deletion failed");
                                 }
@@ -72,4 +74,4 @@ const mapStateToProps = state => ({
     auth: state.auth.auth
 });
 
-export default connect(mapStateToProps, { toggleModal })(MenuModal);
+export default connect(mapStateToProps, { toggleModal, removePost })(MenuModal);
