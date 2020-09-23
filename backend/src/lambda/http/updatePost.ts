@@ -9,40 +9,40 @@ import {
 import { createLogger } from '../../utils/logger'
 
 // const docClient = new AWS.DynamoDB.DocumentClient()
-// const todosTable = process.env.TODOS_TABLE
+// const postsTable = process.env.TODOS_TABLE
 
-const logger = createLogger('update-todo')
+const logger = createLogger('update-post')
 
-import { UpdateTodoRequest } from '../../requests/UpdatePostRequest'
+import { UpdatePostRequest } from '../../requests/UpdatePostRequest'
 import { getUserId } from '../utils'
-import { updateTodo } from '../../businessLogic/posts'
+import { updatePost } from '../../businessLogic/posts'
 
 export const handler: APIGatewayProxyHandler = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
-  const todoId = event.pathParameters.todoId
-  const updatedTodo: UpdateTodoRequest = JSON.parse(event.body)
+  const postId = event.pathParameters.postId
+  const updatedPost: UpdatePostRequest = JSON.parse(event.body)
 
-  // TODO: Update a TODO item with the provided id using values in the "updatedTodo" object
-  logger.info('update todo ', updatedTodo)
+  // TODO: Update a TODO item with the provided id using values in the "updatedPost" object
+  logger.info('update post ', updatedPost)
 
-  const data = await updateTodo(updatedTodo, todoId, getUserId(event))
+  const data = await updatePost(updatedPost, postId, getUserId(event))
   //   const data = await docClient
   //     .update({
-  //       TableName: todosTable,
+  //       TableName: postsTable,
   //       Key: {
-  //         todoId,
+  //         postId,
   //         userId: getUserId(event)
   //       },
   //       UpdateExpression: 'set done = :done',
   //       ExpressionAttributeValues: {
-  //         ':done': updatedTodo['done']
+  //         ':done': updatedPost['done']
   //       },
   //       ReturnValues: 'UPDATED_NEW'
   //     })
   //     .promise()
 
-  logger.info('Todo updated ', data)
+  logger.info('Post updated ', data)
 
   if (data) {
     return {

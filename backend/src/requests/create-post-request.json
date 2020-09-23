@@ -1,18 +1,14 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "todo",
+    "title": "post",
     "type": "object",
     "properties": {
-      "name": {
-        "type": "string"
-      },
-      "dueDate": {
+      "caption": {
         "type": "string"
       }
     },
     "required": [
-      "name",
-      "dueDate"
+      "caption"
     ],
     "additionalProperties": false
   }

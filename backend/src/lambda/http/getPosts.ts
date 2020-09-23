@@ -8,26 +8,26 @@ import {
 // import * as AWS from 'aws-sdk'
 import { getUserId } from '../utils'
 import { createLogger } from '../../utils/logger'
-import { getAllTodos } from '../../businessLogic/posts'
+import { getAllPosts } from '../../businessLogic/posts'
 
 // const docClient = new AWS.DynamoDB.DocumentClient()
-// const todosTable = process.env.TODOS_TABLE
+// const postsTable = process.env.TODOS_TABLE
 // const userIdIndex = process.env.USER_ID_INDEX
 
-const logger = createLogger('get-todos')
+const logger = createLogger('get-posts')
 
 export const handler: APIGatewayProxyHandler = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
   // TODO: Get all TODO items for a current user
 
-  logger.info('get todos')
+  logger.info('get posts')
 
-  const result = await getAllTodos(getUserId(event))
+  const result = await getAllPosts(getUserId(event))
 
   //   const result = await docClient
   //     .query({
-  //       TableName: todosTable,
+  //       TableName: postsTable,
   //       IndexName: userIdIndex,
   //       KeyConditionExpression: 'userId = :userId',
   //       ExpressionAttributeValues: {
@@ -36,7 +36,7 @@ export const handler: APIGatewayProxyHandler = async (
   //     })
   //     .promise()
 
-  logger.info('todos ', result)
+  logger.info('posts ', result)
 
   return {
     statusCode: 200,

@@ -1,45 +1,45 @@
 import * as uuid from 'uuid'
 
 import { PostItem } from '../models/PostItem'
-import { CreateTodoRequest } from '../requests/CreatePostRequest'
-import { UpdateTodoRequest } from '../requests/UpdatePostRequest'
-import { TodoAccess } from '../dataLayer/postsAccess'
+import { CreatePostRequest } from '../requests/CreatePostRequest'
+import { UpdatePostRequest } from '../requests/UpdatePostRequest'
+import { PostAccess } from '../dataLayer/postsAccess'
 
-const todoAccess = new TodoAccess()
+const postAccess = new PostAccess()
 
-export async function getAllTodos(userId: string): Promise<TodoItem[]> {
-  return await todoAccess.getAllTodos(userId)
+export async function getAllPosts(userId: string): Promise<PostItem[]> {
+  return await postAccess.getAllPosts(userId)
 }
 
-export async function createTodo(
-  createTodoRequest: CreateTodoRequest,
+export async function createPost(
+  createPostRequest: CreatePostRequest,
   userId: string
 ) {
-  const todoId = uuid.v4()
-  let createTodo = {
-    todoId,
+  const postId = uuid.v4()
+  let createPost = {
+    postId,
     userId,
     createdAt: new Date().toLocaleString(),
-    ...createTodoRequest
+    ...createPostRequest
   }
 
-  return await todoAccess.createTodo(createTodo)
+  return await postAccess.createPost(createPost)
 }
 
-export async function deleteTodo(todoId: string, userId: string) {
-  console.log('Delete Todo')
-  return await todoAccess.deleteTodo(todoId, userId)
+export async function deletePost(postId: string, userId: string) {
+  console.log('Delete Post')
+  return await postAccess.deletePost(postId, userId)
 }
 
-export async function updateTodo(
-  todo: UpdateTodoRequest,
-  todoId: string,
+export async function updatePost(
+  post: UpdatePostRequest,
+  postId: string,
   userId: string
 ) {
-  console.log('Update Todo')
-  return await todoAccess.updateTodo(todo, todoId, userId)
+  console.log('Update Post')
+  return await postAccess.updatePost(post, postId, userId)
 }
 
-export async function generateUploadUrl(todoId, userId) {
-  return await todoAccess.generateUploadUrl(todoId, userId)
+export async function generateUploadUrl(postId, userId) {
+  return await postAccess.generateUploadUrl(postId, userId)
 }

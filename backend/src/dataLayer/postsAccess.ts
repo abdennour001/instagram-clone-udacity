@@ -1,127 +1,127 @@
-import * as AWS from 'aws-sdk'
-import * as AWSXRay from 'aws-xray-sdk'
-import { DocumentClient } from 'aws-sdk/clients/dynamodb'
+import * as AWS from "aws-sdk";
+import * as AWSXRay from "aws-xray-sdk";
+import { DocumentClient } from "aws-sdk/clients/dynamodb";
 
-const XAWS = AWSXRay.captureAWS(AWS)
+const XAWS = AWSXRay.captureAWS(AWS);
 
-import { TodoItem } from '../models/PostItem'
-import { TodoUpdate } from '../models/PostUpdate'
+import { PostItem } from "../models/PostItem";
+import { PostUpdate } from "../models/PostUpdate";
 
-export class TodoAccess {
-  constructor(
-    private readonly docClient: DocumentClient = createDynamoDBClient(),
-    private readonly todosTable = process.env.TODOS_TABLE,
-    private readonly userIdIndex = process.env.USER_ID_INDEX,
-    private readonly bucketName = process.env.IMAGES_S3_BUCKET,
-    private readonly urlExpiration = process.env.SIGNED_URL_EXPIRATION,
+export class PostAccess {
+    constructor(
+        private readonly docClient: DocumentClient = createDynamoDBClient(),
+        private readonly postsTable = process.env.POSTS_TABLE,
+        private readonly userIdIndex = process.env.USER_ID_INDEX,
+        private readonly bucketName = process.env.IMAGES_S3_BUCKET,
+        private readonly urlExpiration = process.env.SIGNED_URL_EXPIRATION,
 
-    private readonly s3 = new AWS.S3({
-      signatureVersion: 'v4'
-    })
-  ) {}
+        private readonly s3 = new AWS.S3({
+            signatureVersion: "v4"
+        })
+    ) {}
 
-  async getAllTodos(userId): Promise<TodoItem[]> {
-    console.log('Getting all todos')
+    async getAllPosts(userId): Promise<PostItem[]> {
+        console.log("Getting all posts");
 
-    const result = await this.docClient
-      .query({
-        TableName: this.todosTable,
-        IndexName: this.userIdIndex,
-        KeyConditionExpression: 'userId = :userId',
-        ExpressionAttributeValues: {
-          ':userId': userId
-        }
-      })
-      .promise()
+        const result = await this.docClient
+            .query({
+                TableName: this.postsTable,
+                IndexName: this.userIdIndex,
+                KeyConditionExpression: "userId = :userId",
+                ExpressionAttributeValues: {
+                    ":userId": userId
+                }
+            })
+            .promise();
 
-    console.log('Todos: ', result.Items)
-    const todos = result.Items
-    return todos as TodoItem[]
-  }
+        console.log("Posts: ", result.Items);
+        const posts = result.Items;
+        return posts as PostItem[];
+    }
 
-  async createTodo(todo: TodoItem): Promise<TodoItem> {
-    console.log('Creating todo')
-    
-    await this.docClient
-      .put({
-        TableName: this.todosTable,
-        Item: todo
-      })
-      .promise()
+    async createPost(post: PostItem): Promise<PostItem> {
+        console.log("Creating post");
 
-    return todo
-  }
+        await this.docClient
+            .put({
+                TableName: this.postsTable,
+                Item: post
+            })
+            .promise();
 
-  async deleteTodo(todoId: string, userId: string): Promise<string> {
-    console.log('Deleting Todo')
-    await this.docClient
-      .delete({
-        TableName: this.todosTable,
-        Key: { todoId: todoId, userId: userId }
-      })
-      .promise()
+        return post;
+    }
 
-    return todoId
-  }
+    async deletePost(postId: string, userId: string): Promise<string> {
+        console.log("Deleting Post");
+        await this.docClient
+            .delete({
+                TableName: this.postsTable,
+                Key: { postId: postId, userId: userId }
+            })
+            .promise();
 
-  async updateTodo(todo: TodoUpdate, todoId: string, userId: string) {
-    console.log('Updating Todo')
-    const data = await this.docClient
-      .update({
-        TableName: this.todosTable,
-        Key: {
-          todoId,
-          userId: userId
-        },
-        UpdateExpression: 'set done = :done',
-        ExpressionAttributeValues: {
-          ':done': todo['done']
-        },
-        ReturnValues: 'UPDATED_NEW'
-      })
-      .promise()
+        return postId;
+    }
 
-    return data
-  }
+    async updatePost(post: PostUpdate, postId: string, userId: string) {
+        console.log("Updating Post");
+        const data = await this.docClient
+            .update({
+                TableName: this.postsTable,
+                Key: {
+                    postId,
+                    userId: userId
+                },
+                UpdateExpression: "set caption = :caption",
+                ExpressionAttributeValues: {
+                    ":caption": post["caption"]
+                },
+                ReturnValues: "UPDATED_NEW"
+            })
+            .promise();
 
-  async generateUploadUrl(todoId, userId): Promise<string> {
-    const url = this.getUploadUrl(todoId)
+        return data;
+    }
 
-    await this.docClient
-      .update({
-        TableName: this.todosTable,
-        Key: {
-          todoId,
-          userId: userId
-        },
-        UpdateExpression: 'set attachmentUrl = :url',
-        ExpressionAttributeValues: {
-          ':url': `https://${this.bucketName}.s3.amazonaws.com/${todoId}`
-        },
-        ReturnValues: 'UPDATED_NEW'
-      })
-      .promise()
+    async generateUploadUrl(postId, userId): Promise<string> {
+        const url = this.getUploadUrl(postId);
 
-    return url
-  }
+        await this.docClient
+            .update({
+                TableName: this.postsTable,
+                Key: {
+                    postId,
+                    userId: userId
+                },
+                UpdateExpression: "set photoUrl = :url",
+                ExpressionAttributeValues: {
+                    ":url": `https://${this.bucketName}.s3.amazonaws.com/${postId}`
+                },
+                ReturnValues: "UPDATED_NEW"
+            })
+            .promise();
 
-  getUploadUrl(todoId: string) {
-    return this.s3.getSignedUrl('putObject', {
-      Bucket: this.bucketName,
-      Key: todoId,
-      Expires: this.urlExpiration
-    })
-  }
+        return url;
+    }
+
+    getUploadUrl(postId: string) {
+        return this.s3.getSignedUrl("putObject", {
+            Bucket: this.bucketName,
+            Key: postId,
+            Expires: this.urlExpiration
+        });
+    }
 }
 
 function createDynamoDBClient() {
-  if (process.env.IS_OFFLINE) {
-    console.log('Creating a local DynamoDB instance')
-    return new XAWS.DynamoDB.DocumentClient({
-      region: 'localhost',
-      endpoint: 'http://localhost:8000'
-    })
-  }
+    if (process.env.IS_OFFLINE) {
+        console.log("Creating a local DynamoDB instance");
+        return new XAWS.DynamoDB.DocumentClient({
+            region: "localhost",
+            endpoint: "http://localhost:8000"
+        });
+    }
 
-  return new XAWS.DynamoDB.DocumentClient()
+    return new XAWS.DynamoDB.DocumentClient();
 }

@@ -8,20 +8,20 @@ import {
 // import * as AWS from 'aws-sdk'
 import { createLogger } from '../../utils/logger'
 import { getUserId } from '../utils'
-import { deleteTodo } from '../../businessLogic/posts'
+import { deletePost } from '../../businessLogic/posts'
 
 // const docClient = new AWS.DynamoDB.DocumentClient()
-// const todosTable = process.env.TODOS_TABLE
+// const postsTable = process.env.TODOS_TABLE
 
-const logger = createLogger('delete-todo')
+const logger = createLogger('delete-post')
 
 export const handler: APIGatewayProxyHandler = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
-  const todoId = event.pathParameters.todoId
+  const postId = event.pathParameters.postId
 
   // no id handler
-  if (!todoId) {
+  if (!postId) {
     return {
       statusCode: 404,
       headers: {
@@ -31,18 +31,18 @@ export const handler: APIGatewayProxyHandler = async (
     }
   }
 
-  logger.info('Deleting todo ', todoId)
+  logger.info('Deleting post ', postId)
 
   //   await docClient
   //     .delete({
-  //       TableName: todosTable,
-  //       Key: { todoId: todoId, userId: getUserId(event) }
+  //       TableName: postsTable,
+  //       Key: { postId: postId, userId: getUserId(event) }
   //     })
   //     .promise()
 
-  await deleteTodo(todoId, getUserId(event))
+  await deletePost(postId, getUserId(event))
 
-  logger.info('Todo Deleted ', todoId)
+  logger.info('Post Deleted ', postId)
 
   // TODO: Remove a TODO item by id
   return {
@@ -50,6 +50,6 @@ export const handler: APIGatewayProxyHandler = async (
     headers: {
       'Access-Control-Allow-Origin': '*'
     },
-    body: JSON.stringify('Todo Deleted successfully.')
+    body: JSON.stringify('Post Deleted successfully.')
   }
 }
